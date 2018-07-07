@@ -1,8 +1,12 @@
 import React from "react";
+import "./Jumbotron.css"
 
-const Jumbotron = ({ children }) => (
+const Jumbotron = () => (
     <div className="jumbotron">
-    {children}
+        <h1 className="text-center">
+        <i className="fa fa-newspaper-o"></i>
+        NY Times Search
+        </h1>
     </div>
 );
 

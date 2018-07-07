@@ -13,19 +13,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("public"));
+  app.use(express.static("client/build"));
 }
 
 // Add routes, both API and view
 // app.use(routes);
 
  
-// If deployed, use the deployed database. Otherwise use the local newsapp database
+// If deployed, use the deployed database. Otherwise use the local nytreact database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
+mongoose.Promise = global.Promise;
 mongoose.connect(MONGODB_URI);
   
   // Start the API server
